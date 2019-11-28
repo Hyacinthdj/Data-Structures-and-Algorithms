@@ -1,7 +1,14 @@
+/*
+	Name: 最大堆 
+	Author: Hyacinth 
+	Date: 28/11/19 20:31
+	Description: 实现一个简单的最大堆以及一个测试程序 
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
-class MyHeap{ //最大堆 
+class MyHeap{  
 private:
 	vector<int> arr;
 public:
@@ -14,7 +21,10 @@ public:
 		}
 	}
 	void pop(){
-		if(arr.empty()) return;
+		if(arr.empty()) {
+			cerr<<"empty error"<<endl; 
+			return ;
+		} 
 		swap(arr[0], arr[arr.size()-1]);
 		arr.pop_back();
 		int cur = 1;
@@ -25,6 +35,10 @@ public:
 		} 
 	}
 	int top(){
+		if(arr.empty()) {
+			cerr<<"empty error"<<endl; 
+			return 0;
+		} 
 		return arr[0];
 	}
 	int size(){
@@ -51,6 +65,7 @@ int main(){
 	assert(h.top() == 4);
 	h.pop();
 	h.pop();
+	h.top();
 	return 0;
 }
 
